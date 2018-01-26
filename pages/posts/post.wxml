@@ -1,3 +1,4 @@
+<import src="post-item/post-item-template.wxml" />
 <view>
   <!--indicator-dots是否显示面板指示点  -->
   <swiper indicator-dots='true' autoplay="true" interval="5000">
