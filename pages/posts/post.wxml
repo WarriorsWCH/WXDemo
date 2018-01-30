@@ -1,20 +1,22 @@
 <import src="post-item/post-item-template.wxml" />
 <view>
-    <swiper catchtap="onSwiperTap" vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
-        <swiper-item>
-            <image id="7" src="/images/wx.png" data-postId="3"></image>
-        </swiper-item>
-        <swiper-item>
-            <image src="/images/vr.png" data-postId="4"></image>
-        </swiper-item>
-        <swiper-item>
-            <image src="/images/iqiyi.png" data-postId="5"></image>
-        </swiper-item>
-    </swiper>
-    <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
-        <!--//template-->
-        <view catchtap="onPostTap" data-postId="{{item.postId}}">
-             <template is="postItem" data="{{...item}}"/>
-        </view>
-</block>
+  <swiper catchtap="onSwiperTap" vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
+    <swiper-item>
+      <image id="7" src="/images/wx.png" data-postId="3"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/vr.png" data-postId="4"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/iqiyi.png" data-postId="5"></image>
+    </swiper-item>
+  </swiper>
+  <!--
+    x:key 的值以两种形式提供
+      字符串，代表在 for 循环的 array 中 item 的某个 property，该 property 的值需要是列表中唯一的字符串或数字，且不能动态改变。
+      保留关键字 *this 代表在 for 循环中的 item 本身，这种表示需要 item 本身是一个唯一的字符串或者数字
+  -->
+  <view wx:for="{{postList}}" wx:for-item="item" wx:key="idx" catchtap="onPostTap" data-postId="{{item.postId}}">
+    <template is="postItem" data="{{...item}}" />
+  </view>
 </view>
