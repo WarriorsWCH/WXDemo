@@ -1,11 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
+  padding: 0; 
 }
 
 .head-image {
   width: 100%;
   height: 460rpx;
+  overflow: visible;
 }
 
 .hide {
